@@ -18,8 +18,8 @@ const GroupsTable = props => (
                     {/* <td>{group.contacts.name}</td>
                     <td>{group.contacts.email}</td> */}
                 <td>
-                    <button onClick = {() => {props.editRow(group)}}  className ="button muted-button">Edit</button>
-                    <button onClick={() => props.deleteClient(group.id)} className="button muted-button">Delete</button>
+                    <button onClick = {() => {props.editGroup(group)}}  className ="button muted-button">Edit</button>
+                    <button onClick={() => props.deleteGroup(group.id)} className="button muted-button">Delete</button>
                 </td>
             </tr> 
         )) 

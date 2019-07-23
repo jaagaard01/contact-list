@@ -1,5 +1,5 @@
 import React from 'react'
-import GroupsTable from './GroupsTable';
+
 
 const ContactTable = props => (
     <table>
@@ -23,7 +23,8 @@ const ContactTable = props => (
                     <button onClick={() => props.deleteClient(client.id)} className="button muted-button">Delete</button>
                 </td>
                 <td>
-                    {props.groups.name}
+                    {client.group}
+                  
                 </td>
             </tr> 
         )) 

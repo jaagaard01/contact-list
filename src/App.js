@@ -3,12 +3,14 @@ import ContactTable from './tables/ContactsTable'
 import AddClientForm from './forms/AddClientForm'
 import EditClientForm from './forms/EditClientForm'
 import GroupsTable from './tables/GroupsTable'
+import AddGroupForm from './forms/AddGroupForm'
+import EditGroupForm from './forms/EditGroupForm'
 
 
 function App() {
 // client data 
   const clientData = [
-    {id:1, name: "John Aagaard", email: "j_aagaard@yahoo.com", group:{name:"favorites", id:1}},
+    {id:1, name: "John Aagaard", email: "j_aagaard@yahoo.com", group:"favorites"},
     {id:2, name: "Steve Aagaard", email: "t_aagaard@yahoo.com",group: ""},
     {id:3, name: "Santa Aagaard", email: "z_aagaard@yahoo.com",group: ""}
   ]  
@@ -118,20 +120,20 @@ const updateGroup = (id, updatedGroup) => {
         <h1>Groups</h1>
         <div className="flex-row">
         <div className="flex-large">
-            {editing ? (
+            {editingGroup ? (
               <div>
               <h2>Edit Group</h2>
-              <EditClientForm
-                editing={editing}
-                setEditing={setEditing}
-            currentClient={currentClient}
-            updateClient={updateClient}
+              <EditGroupForm
+                editingGroup={editingGroup}
+                setEditingGroup={setEditingGroup}
+            currentGroup={currentGroup}
+            updateGroup={updateGroup}
               />
            </div>
       ) : (
         <div>
           <h2>Add Group</h2>
-          <AddClientForm addClient={addClient} groups={groups}/>
+          <AddGroupForm addGroup={addGroup} groups={groups}/>
         </div>
       )}
      
@@ -139,7 +141,7 @@ const updateGroup = (id, updatedGroup) => {
 
           <div className="flex-large">
             <h2>View Groups</h2>
-            <GroupsTable groups={groups} deleteClient={deleteClient} editRow={editRow}></GroupsTable>
+            <GroupsTable groups={groups} deleteGroup={deleteGroup} editGroup={editGroup}></GroupsTable>
           </div>
           
           

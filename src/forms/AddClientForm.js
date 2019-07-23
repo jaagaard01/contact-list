@@ -3,13 +3,16 @@ import React, {useState} from 'react'
 
 
 const AddClientForm = props => {
-    const initialFormState = {id:null, name:"", email:"", group:<option default>Select</option>}
+    const initialFormState = {id:null, name:"", email:"", group:<option default>111</option>}
 
     const [client, setClient] = useState(initialFormState)
 
     const handleInputChange = event => {
         const {name, value} = event.target
         setClient({...client, [name]:value})
+        console.log(client)
+     
+       
 }
 
 
