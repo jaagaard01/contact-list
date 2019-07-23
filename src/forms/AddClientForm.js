@@ -3,14 +3,14 @@ import React, {useState} from 'react'
 
 
 const AddClientForm = props => {
-    const initialFormState = {id:null, name:"", email:"", group:<option default>111</option>}
+    const initialFormState = {id:null, name:"", email:"", group:""}
 
     const [client, setClient] = useState(initialFormState)
 
     const handleInputChange = event => {
         const {name, value} = event.target
         setClient({...client, [name]:value})
-        console.log(client)
+        
      
        
 }
@@ -27,7 +27,7 @@ const groupItems = props.groups.map((group) =>
                 if(!client.name || !client.email) return
                 props.addClient(client)
                 setClient(initialFormState)
-                console.log(props.groups)
+                console.log(client.group)
             }}
             >
             <label>Name</label>
@@ -35,7 +35,9 @@ const groupItems = props.groups.map((group) =>
             <label>Email</label>
             <input type="text" name="email" value={client.email} onChange={handleInputChange} />
             <label>Group</label>
-            <select value={props.groups.name}  onChange={handleInputChange}>
+            <select value={props.groups.name}  onChange={e =>{const newGroup = e.target.value; setClient(prevState => {
+                return {...client, group: newGroup }
+            })} }>
                 <option default>Select</option>
                 {groupItems}
             </select>

@@ -36,7 +36,7 @@ function App() {
 
   const editRow = client => {
     setEditing(true)
-    setCurrentClient({id: client.id, name: client.name, email: client.email, group: groups.name})
+    setCurrentClient({id: client.id, name: client.name, email: client.email, group: client.group})
   }
   
   const updateClient = (id, updatedClient) => {
@@ -97,6 +97,7 @@ const updateGroup = (id, updatedGroup) => {
                 setEditing={setEditing}
             currentClient={currentClient}
             updateClient={updateClient}
+            groups={groups}
               />
            </div>
       ) : (
